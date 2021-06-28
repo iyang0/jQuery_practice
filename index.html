@@ -75,6 +75,41 @@
 <script src="https://unpkg.com/jquery"></script>
 <script>
   // Add your code here!
+  //problem 1
+  $(function(){console.log("Let’s get ready to party with jQuery!")});
+  
+  //problem 2
+  $("img").addClass("image-center");
+  
+  //problem 3
+  $("article p:last-child").remove();
+  
+  //problem 4
+  $("#title").css("font-size", `${random(0,100)}px`)
+  //random inclusive
+  function random(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+  //problem 5
+  $("ol").append("<li>:^)</li>");
+  
+  //problem 6
+  $("aside").empty().append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</p>");
+  
+  //problem 7
+  $(".mb-5").on("input",".form-control", function(){
+    $("body").css("background-color",
+    `rgb(${$(".form-control").eq(0).val()},
+    ${$(".form-control").eq(1).val()},
+    ${$(".form-control").eq(2).val()})`)
+  });
+  
+  //problem 8
+  $("img").click( function(evt){
+    $("img").remove();
+  });
 </script>
 </body>
 
