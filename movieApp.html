@@ -31,11 +31,9 @@
   })
 
   $("#title-sort").click(function (evt) {
+    // sorting logic found from : https://stackoverflow.com/questions/1134976/how-may-i-sort-a-list-alphabetically-using-jquery
     let myList = $("#submissions");
-    // let listItems = myList.children("li").get();
     let listItems = myList.children("li").get();
-    let titlesList = [];
-    // found from : https://stackoverflow.com/questions/1134976/how-may-i-sort-a-list-alphabetically-using-jquery
     listItems.sort(function(a, b) {
         let aText = $(a).children().eq(0).text();
         let bText = $(b).children().eq(0).text()
