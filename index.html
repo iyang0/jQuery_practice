@@ -79,7 +79,7 @@
   $(function(){console.log("Let’s get ready to party with jQuery!")});
   
   //problem 2
-  $("img").addClass("image-center");
+  $("article img").addClass("image-center");
   
   //problem 3
   $("article p:last-child").remove();
@@ -96,14 +96,18 @@
   $("ol").append("<li>:^)</li>");
   
   //problem 6
-  $("aside").empty().append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</p>");
+  $("aside")
+    .empty()
+    .append("<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus.</p>");
   
   //problem 7
   $(".mb-5").on("input",".form-control", function(){
+    let red = $(".form-control").eq(0).val();
+    let green = $(".form-control").eq(1).val();
+    let  blue = $(".form-control").eq(2).val();
+
     $("body").css("background-color",
-    `rgb(${$(".form-control").eq(0).val()},
-    ${$(".form-control").eq(1).val()},
-    ${$(".form-control").eq(2).val()})`)
+    `rgb(${red}, ${green}, ${blue})`);
   });
   
   //problem 8

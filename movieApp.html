@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+    <button id = "title-sort">Sort By Title</button>
+    <button id = "rating-sort">Sort By Rating</button>
+    <input id = "title">
+    <input id = "rating" type = "number" min = "0" max = "10">
+    <button id = "submit">Submit</button>
+    <ul id = "submissions"></ul>
+<script src="https://unpkg.com/jquery"></script>
+<script>
+  $("#submit").click(function(evt) {
+      let title = $("#title").val();
+      let rating = $("#rating").val();
+      let submissionLi = $("<li>");
+      let titleTag = $(`<p class="title-submission">${title}</p>`)
+      let ratingTag = $(`<p class ="rating-submission">${rating}</p>`)
+      submissionLi.append(titleTag);
+      submissionLi.append(ratingTag);
+      submissionLi.append("<button>Remove</button>");
+      $("ul").append(submissionLi);
+  });
+
+  $("#submissions").on("click", "button", function(evt) {
+      $(evt.target).parent().remove();
+  })
+
+  $("#title-sort").click(function (evt) {
+    let myList = $("#submissions");
+    // let listItems = myList.children("li").get();
+    let listItems = myList.children("li").get();
+    let titlesList = [];
+    // found from : https://stackoverflow.com/questions/1134976/how-may-i-sort-a-list-alphabetically-using-jquery
+    listItems.sort(function(a, b) {
+        let aText = $(a).children().eq(0).text();
+        let bText = $(b).children().eq(0).text()
+        return aText.toUpperCase().localeCompare(bText.toUpperCase());
+    });
+    $.each(listItems, function(idx, itm) { myList.append(itm); });
+  });
+</script>
+</body>
+
+</html>
