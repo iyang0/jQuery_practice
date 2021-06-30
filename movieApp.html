@@ -15,11 +15,14 @@
 <script src="https://unpkg.com/jquery"></script>
 <script>
   $("#submit").click(function(evt) {
+
       let title = $("#title").val();
       let rating = $("#rating").val();
+
       let submissionLi = $("<li>");
       let titleTag = $(`<p class="title-submission">${title}</p>`)
       let ratingTag = $(`<p class ="rating-submission">${rating}</p>`)
+      
       submissionLi.append(titleTag);
       submissionLi.append(ratingTag);
       submissionLi.append("<button>Remove</button>");
@@ -33,12 +36,14 @@
   $("#title-sort").click(function (evt) {
     // sorting logic found from : https://stackoverflow.com/questions/1134976/how-may-i-sort-a-list-alphabetically-using-jquery
     let myList = $("#submissions");
+    
     let listItems = myList.children("li").get();
     listItems.sort(function(a, b) {
         let aText = $(a).children().eq(0).text();
         let bText = $(b).children().eq(0).text()
         return aText.toUpperCase().localeCompare(bText.toUpperCase());
     });
+
     $.each(listItems, function(idx, itm) { myList.append(itm); });
   });
 </script>
